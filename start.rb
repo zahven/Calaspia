@@ -7,10 +7,22 @@ def start
 	puts "Woops, someone pressed a button"
 	exit
 end
+def res
+	puts "Resolution: #{root['geometry']}"
+end
+
+msg = Proc.new {
+	Tk.messageBox(
+		'type' => "ok",
+		'icon' => "info",
+		'title' => "Title",
+		'message' => "Message"
+	)
+}
 
 image = TkPhotoImage.new
 image.file = "world.gif"
-root['geometry'] = "#{image.width}x#{image.height}-30+30"
+root['geometry'] = "1440x750+0+25"
 lbl = TkLabel.new (root)
 lbl.image = image
 lbl.place('height'=>image.height,
@@ -22,5 +34,26 @@ but = TkButton.new (root) {
 	command (proc {start})
 }
 but.place('x'=> image.width/2,
+	'y'=> image.height/2)
+
+menu = TkMenu.new(root)
+menu.add('command',
+	'label' => "This is part of a menu",
+	'command' => msg,
+	'underline' => 1)
+menu.add('command',
+	'label' => "And so is this",
+	'command' => msg,
+	'underline' => -2)
+dropdown = TkMenu.new
+dropdown.add('cascade',
+	'menu' => menu,
+	'label' => "Press this")
+root.menu(dropdown)
+but2 = TkButton.new (root) {
+	text "Options"
+	command (proc {res})
+}
+but2.place('x'=> image.width/2+50,
 	'y'=> image.height/2)
 Tk.mainloop
