@@ -9,7 +9,7 @@ def start
 end
 
 def level
-        puts "Changing the picture"
+	puts "Changing the picture"
         img.file = "weltkarte.gif"
 	
 	but.destroy
@@ -32,11 +32,11 @@ but = TkButton.new (root) {
 but.place('x'=> image.width/2,
 	'y'=> image.height/2)
 
-
-start = TkButton.new (root) {
-	text "Start"
+level = TkButton.new (root) {
+	text “Level Auswahl”
 	command (proc {level})
 }
-start.place('x'=> image.width/2,
+level.place('x'=> image.width/2,
 	'y'=> image.height/2)
+
 Tk.mainloop
