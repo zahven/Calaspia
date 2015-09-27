@@ -8,8 +8,17 @@ def start
 	exit
 end
 
+def level
+	puts "Changing the picture"
+        img.file = "weltkarte.gif"
+	
+	but.destroy
+	start.destroy
+
+end
+
 image = TkPhotoImage.new
-image.file = "maxresdefaultKopie.gif"
+image.file = "maxresdefault.gif"
 root['geometry'] = "#{image.width}x#{image.height}-30+30"
 lbl = TkLabel.new (root)
 lbl.image = image
@@ -23,4 +32,12 @@ but = TkButton.new (root) {
 }
 but.place('x'=> image.width/2,
 	'y'=> image.height/2)
+
+level = TkButton.new (root) {
+	text “Level Auswahl”
+	command (proc {level})
+}
+level.place('x'=> image.width/2,
+	'y'=> image.height/2)
+
 Tk.mainloop
