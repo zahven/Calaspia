@@ -10,7 +10,7 @@ end
 
 def level(img,but,start)
 	puts "Changing the picture"
-        img.file = "weltkarte.gif"
+        img.file = „Levelauswahl.gif"
 	
 	but.destroy
 	start.destroy
