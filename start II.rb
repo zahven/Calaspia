@@ -30,7 +30,7 @@ but = TkButton.new (root) {
 	command (proc {start})
 }
 but.place('x'=> image.width/2,
-	'y'=> image.height/2)
+	'y'=> image.height/2+30)
 
 levelauswahl = TkButton.new (root) {
 	text "Level Auswahl"
