@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 cd $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-pwd
-ruby image.rb
+ruby "start II.rb"
